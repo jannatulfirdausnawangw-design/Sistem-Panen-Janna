@@ -1,0 +1,41 @@
+"""
+Program Penghitung Total Hasil Panen
+Sistem Pencatatan Hasil Panen Digital
+"""
+
+def hitung_total_panen(daftar_panen):
+    """Menghitung total hasil panen (dalam kg) dari daftar panen per petak."""
+    total = sum(daftar_panen)
+    return total
+
+
+def hitung_diskon(total_harga, persen_diskon):
+    """Menghitung harga akhir setelah dipotong diskon (dalam persen)."""
+    potongan = total_harga * (persen_diskon / 100)
+    harga_akhir = total_harga - potongan
+    return harga_akhir
+
+
+def main():
+    # Contoh data hasil panen per petak (dalam kg)
+    daftar_panen = [120, 95, 150, 80, 110]
+
+    total = hitung_total_panen(daftar_panen)
+
+    print("=== Sistem Pencatatan Hasil Panen Digital ===")
+    print(f"Data panen per petak (kg) : {daftar_panen}")
+    print(f"Total hasil panen         : {total} kg")
+
+    # Contoh perhitungan diskon untuk penjualan hasil panen
+    harga_per_kg = 5000
+    total_harga = total * harga_per_kg
+    persen_diskon = 10
+
+    harga_akhir = hitung_diskon(total_harga, persen_diskon)
+    print(f"Total harga jual (kotor)  : Rp{total_harga:,.0f}")
+    print(f"Diskon                    : {persen_diskon}%")
+    print(f"Harga akhir setelah diskon: Rp{harga_akhir:,.0f}")
+
+
+if __name__ == "__main__":
+    main()
